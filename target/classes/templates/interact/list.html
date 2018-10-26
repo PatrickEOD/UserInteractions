@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+	table {
+		border-collapse: collapse;
+	}
+	table, th, td {
+		border: 1px solid black;
+	}
+</style>
 <head>
     <title>User Interaction POC</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -7,22 +15,49 @@
 <body>
 <div class="container">
     <div th:if="${not #lists.isEmpty(interactions)}">
-        <h2>Product List</h2>
+        <h2>Interactions List</h2>
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Image URL</th>
-                <th>List</th>
+                <th>href</th>
+                <th>sourceInteractionId</th>
+                <th>sourceSystemId</th>
+                <th>sourceSystem</th>
+                <th>baseType</th>
+                <th>type</th>
+                <th>schemaLocation</th>
+                <th>interactiondDate</th>
+                <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             <tr th:each="interact : ${interactions}">
                 <td th:text="${interact.id}"></td>
-                <td th:text="${interact.description}"></td>
-                <td th:text="${interact.price}"></td>
-                <td th:text="${interact.imageUrl}"></td>
+                <td th:text="${interact.href}"></td>
+                <td th:text="${interact.sourceInteractionId}"></td>
+                <td th:text="${interact.sourceSystemId}"></td>
+                <td th:text="${interact.sourceSystem}"></td>
+                <td th:text="${interact.baseType}"></td>
+                <td th:text="${interact.type}"></td>
+                <td th:text="${interact.schemaLocation}"></td>
+                <!-- <td th:each="interactionDate : *{interact}">
+                	<span th:text="*{interactionDate.startDateTime}"></span>
+                	<span th:text="*{interactionDate.endDateTime}"></span>
+                </td> -->
+               <!--  <td th:each="interactionDate, itemStat : *{interact}"> -->
+                	<!-- <span th:field="*{interactionDate[__${itemStat.index}__].startDateTime}"></span>
+                	<span th:field="*{interactionDate[__${itemStat.index}__].endDateTime}"></span> -->
+                	<!-- <span th:text="${interactionDate.startDateTime}"></span>
+                	<span th:text="${interactionDate.endDateTime}"></span> -->
+                <!-- </td> -->
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{interactionDate}"> 
+                			Start Date:<p th:text="${item.startDateTime}"></p>
+                			End Date:<p th:text="${item.endDateTime}"></p>
+                		</span>
+                	</th:block>
+                </td>  
                 <td><a th:href="${'/interact/show/' + interact.id}">View</a> </td>
                 <td><a th:href="${'/interact/edit/' + interact.id}">Edit</a> </td>
                 <td><a th:href="${'/interact/delete/' + interact.id}">Delete</a> </td>
@@ -31,7 +66,7 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <a href="/interact/new">New Product</a>
+            <a href="/interact/new">New Interaction</a>
         </div>
     </div>
 </div>

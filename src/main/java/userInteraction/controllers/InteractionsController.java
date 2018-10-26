@@ -1,6 +1,6 @@
 package userInteraction.controllers;
 
-import java.util.UUID;
+//import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -47,13 +47,15 @@ public class InteractionsController {
 
     @RequestMapping("/interact/show/{id}")
     public String getProduct(@PathVariable String id, Model model){
-        model.addAttribute("interaction", interactionsService.getById(UUID.fromString(id)));
+//        model.addAttribute("interaction", interactionsService.getById(UUID.fromString(id)));
+    	model.addAttribute("Interaction", interactionsService.getById(id));
         return "interact/show";
     }
 
     @RequestMapping("interact/edit/{id}")
     public String edit(@PathVariable String id, Model model){
-        Interactions interaction = interactionsService.getById(UUID.fromString(id));
+//        Interactions interaction = interactionsService.getById(UUID.fromString(id));
+        Interactions interaction = interactionsService.getById(id);
         InteractionsForm interactionForm = interactionsToInteractionsForm.convert(interaction);
 
         model.addAttribute("interactionForm", interactionForm);
@@ -73,14 +75,15 @@ public class InteractionsController {
             return "interact/interactionform";
         }
 
-        Interactions savedInteraction= interactionsService.saveOrUpdateInteractionForm(interactionsForm);
+        Interactions savedInteraction= interactionsService.saveOrUpdateInteractionsForm(interactionsForm);
 
         return "redirect:/interact/show/" + savedInteraction.getId();
     }
 
     @RequestMapping("/interact/delete/{id}")
     public String delete(@PathVariable String id){
-        interactionsService.delete(UUID.fromString(id));
+//        interactionsService.delete(UUID.fromString(id));
+        interactionsService.delete(id);
         return "redirect:/interact/list";
     }
 	

@@ -48,6 +48,11 @@
 			<artifactId>maven-plugin-api</artifactId>
 			<version>3.3.9</version>
 		</dependency>
+		 <dependency>
+   			<groupId>com.datastax.cassandra</groupId>
+    		<artifactId>cassandra-driver-mapping</artifactId>
+   			 <version>3.6.0</version>
+		</dependency> 
 		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>

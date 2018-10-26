@@ -9,49 +9,71 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <h2>Show Product</h2>
+            <h2>Show Interaction Details</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-8">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Product Id:</label>
+                    <label class="col-sm-2 control-label">Interaction Id:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${interaction.id}">Product Id</p>
+                        <p class="form-control-static" th:text="${interaction.id}">Interaction Id</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Description:</label>
+                    <label class="col-sm-2 control-label">Link:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${interaction.description}">Description</p>
+                        <p class="form-control-static" th:text="${interaction.href}">href</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Price:</label>
+                    <label class="col-sm-2 control-label">Source interaction ID:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${interaction.price}">Price</p>
+                        <p class="form-control-static" th:text="${interaction.sourceInteractionId}">sourceInteractionId</p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 sm-2 control-label">Image URL:</label>
+                    <label class="col-sm-2 sm-2 control-label">Source System ID:</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static" th:text="${interaction.imageUrl}">Image</p>
+                        <p class="form-control-static" th:text="${interaction.sourceSystemId}">sourceSystemId</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Source System:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interaction.sourceSystem}">sourceSystem</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Base Type:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interaction.baseType}">baseType</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Type:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interaction.type}">type</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 sm-2 control-label">Schema location:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${interaction.schemaLocation}">schemaLocation</p>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <!--Added for easy navigation START  -->
     <div class="row">
         <div class="col-sm-3">
-            <a href="/interact/new">New Product</a>
+            <a href="/interact/new">New Interaction</a>
         </div>
         <div class="col-sm-3">
-        	<a href="/interact/list">List of products</a>
+        	<a href="/interact/list">List of interactions</a>
         </div>
     </div>
-     <!--Added for easy navigation END  -->
 </div>
 
 </body>

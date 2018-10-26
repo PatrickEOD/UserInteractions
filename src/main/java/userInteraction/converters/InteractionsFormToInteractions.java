@@ -12,14 +12,25 @@ public class InteractionsFormToInteractions implements Converter<InteractionsFor
 
 	@Override
 	public Interactions convert(InteractionsForm interactionsForm) {
-		Interactions interaction = new Interactions();
+		Interactions interactions = new Interactions();
+		
 		if(interactionsForm.getId() != null && !StringUtils.isEmpty(interactionsForm.getId())) {
-			interaction.setId(interactionsForm.getId());
+			interactions.setId(interactionsForm.getId());
 		}
-		interaction.setDescription(interactionsForm.getDescription());
-		interaction.setPrice(interactionsForm.getPrice());
-		interaction.setImageUrl(interactionsForm.getImageUrl());
-		return interaction;
+		
+		interactions.setHref(interactionsForm.getHref());
+		interactions.setSourceInteractionId(interactionsForm.getSourceInteractionId());
+		interactions.setSourceSystemId(interactionsForm.getSourceSystemId());
+		interactions.setSourceSystem(interactionsForm.getSourceSystem());
+		interactions.setBaseType(interactionsForm.getBaseType());
+		interactions.setType(interactionsForm.getType());
+		interactions.setSchemaLocation(interactionsForm.getSchemaLocation());
+		
+//		interactions.setDescription(interactionsForm.getDescription());
+//		interactions.setPrice(interactionsForm.getPrice());
+//		interactions.setImageUrl(interactionsForm.getImageUrl());
+		
+		return interactions;
 	}
 
 	

@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 
-    <h2>Product Details</h2>
+    <h2>Interaction Details</h2>
     <div>
         <form class="form-horizontal" th:object="${interactionForm}" th:action="@{/interacting}" method="post">
 
@@ -15,46 +15,114 @@
                 <p th:text="#{form.hasErrors}">Error Message</p>
             </div>
 
-            <input type="hidden" th:field="*{id}"/>
-
-            <div class="form-group" th:class="${#fields.hasErrors('description')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">Description:</label>
+          <!--   <input type="hidden" th:field="*{id}"/> -->
+          	<div class="form-group" th:class="${#fields.hasErrors('id')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">ID:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{description}" th:errorclass="has-error"/>
-
+                    <input type="text" class="form-control" th:field="*{id}" th:errorclass="has-error"/>
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('description')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('id')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>
             </div>
 
-            <div class="form-group" th:class="${#fields.hasErrors('price')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">Price:</label>
+            <div class="form-group" th:class="${#fields.hasErrors('href')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Link:</label>
                 <div class="col-sm-10">
-                    <input type="number" min="0" max="5000" step="0.01" class="form-control" th:field="*{price}" th:errorclass="has-error"/>
-
+                    <input type="text" class="form-control" th:field="*{href}" th:errorclass="has-error"/>
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('price')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('href')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>
             </div>
 
-            <div class="form-group" th:class="${#fields.hasErrors('imageUrl')} ? 'form-group has-error' : 'form-group'">
-                <label class="col-sm-2 control-label">Image Url:</label>
+            <div class="form-group" th:class="${#fields.hasErrors('sourceInteractionId')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Source System ID:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" th:field="*{imageUrl}" th:errorclass="has-error"/>
-
+                    <input type="text" class="form-control" th:field="*{sourceInteractionId}" th:errorclass="has-error"/>
                     <span class="help-block">
                        <ul>
-                           <li th:each="err : ${#fields.errors('imageUrl')}" th:text="${err}" />
+                           <li th:each="err : ${#fields.errors('sourceInteractionId')}" th:text="${err}" />
                        </ul>
                     </span>
                 </div>
             </div>
+
+            <div class="form-group" th:class="${#fields.hasErrors('sourceSystemId')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Source System ID:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{sourceSystemId}" th:errorclass="has-error"/>
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('sourceSystemId')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group" th:class="${#fields.hasErrors('sourceSystem')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Source System:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{sourceSystem}" th:errorclass="has-error"/>
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('sourceSystem')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group" th:class="${#fields.hasErrors('baseType')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Base Type:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{baseType}" th:errorclass="has-error"/>
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('baseType')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group" th:class="${#fields.hasErrors('type')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Type:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{type}" th:errorclass="has-error"/>
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('type')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="form-group" th:class="${#fields.hasErrors('schemaLocation')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Schema Location:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{schemaLocation}" th:errorclass="has-error"/>
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('schemaLocation')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div>
+<!--             <div class="form-group" th:class="${#fields.hasErrors('schemaLocation')} ? 'form-group has-error' : 'form-group'">
+                <label class="col-sm-2 control-label">Schema Location:</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0" max="5000" step="0.01" class="form-control" th:field="*{schemaLocation}" th:errorclass="has-error"/>
+
+                    <span class="help-block">
+                       <ul>
+                           <li th:each="err : ${#fields.errors('schemaLocation')}" th:text="${err}" />
+                       </ul>
+                    </span>
+                </div>
+            </div> -->
             <div class="row">
                 <button type="submit" class="btn btn-default">Submit</button>
             </div>
