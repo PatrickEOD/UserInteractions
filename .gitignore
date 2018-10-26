@@ -36,6 +36,9 @@ hs_err_pid*
 # ST project files
 .springBeans
 
+# svteclipse plugin
+.target
+
 # NetBeans project files
 nbproject/private/
 build/
