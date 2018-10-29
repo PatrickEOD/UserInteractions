@@ -30,6 +30,9 @@ public class InteractionsServiceImpl implements InteractionsService {
 	public List<Interactions> listAll() {
 		List<Interactions> interact = new ArrayList<>();
 		interactionsRepository.findAll().forEach(interact::add);
+//		for (Interactions it : interact ) {
+//			System.out.println(it.toString());
+//		}
 		return interact;
 	}
 

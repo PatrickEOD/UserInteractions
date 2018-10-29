@@ -27,6 +27,21 @@
                 <th>type</th>
                 <th>schemaLocation</th>
                 <th>interactiondDate</th>
+                <th>description</th>
+                <th>reason</th>
+                <th>status</th>
+                <th>subStatus</th>
+                <th>statusChangeDate</th>
+                <th>direction</th>
+                <th>channel</th>
+                <th>registeredBy</th>
+                <th>contractId</th>
+                <th>customerId</th>
+                <th>customerPanteraId</th>
+                <th>leadId</th>
+                <th>msidn</th>
+                <th>relatedParty</th>
+                <th>relatedEntity</th>
                 <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -53,11 +68,60 @@
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{interactionDate}"> 
-                			Start Date:<p th:text="${item.startDateTime}"></p>
-                			End Date:<p th:text="${item.endDateTime}"></p>
+                			<p>Start Date:<span th:text="${item.startDateTime}"></span></p>
+                			<p>End Date:<span th:text="${item.endDateTime}"></span></p>
                 		</span>
                 	</th:block>
                 </td>  
+                <td th:text="${interact.description}"></td>
+                <td th:text="${interact.reason}"></td>
+                <td th:text="${interact.status}"></td>
+                <td th:text="${interact.subStatus}"></td>
+                <td th:text="${interact.statusChangeDate}"></td>
+                <td th:text="${interact.direction}"></td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{channel}">
+					        <p>ID:<span th:text="${item.id}"></span></p>	    		
+					        <p>href:<span th:text="${item.href}"></span></p>        		
+					        <p>name:<span th:text="${item.name}"></span></p>        		
+					        <p>role:<span th:text="${item.role}"></span></p>        		
+					        <p>type:<span th:text="${item.type}"></span></p>        		
+                		</span>
+                	</th:block>
+                </td>
+                <td th:text="${interact.registeredBy}"></td>
+                <td th:text="${interact.contractId}"></td>
+                <td th:text="${interact.customerId}"></td>
+                <td th:text="${interact.customerPanteraId}"></td>
+                <td th:text="${interact.leadId}"></td>
+                <td th:text="${interact.msidn}"></td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{relatedParty}">
+                			<!-- <span th:each="item : *{items}"> -->
+	                			<p>ID:<span th:text="${item.id}"></span></p>
+	                			<p>href:<span th:text="${item.href}"></span></p>
+	                			<p>referredType:<span th:text="${item.referredType}"></span></p>
+	                			<p>role:<span th:text="${item.role}"></span></p>
+	                			<p>name:<span th:text="${item.name}"></span></p>
+	                			<hr>
+                			<!-- </span> -->
+                		</span>
+                	</th:block>
+                </td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{relatedEntity}">
+                			<p>ID:<span th:text="${item.id}"></span></p>
+	                		<p>href:<span th:text="${item.href}"></span></p>
+	                		<p>referredType:<span th:text="${item.referredType}"></span></p>
+	                		<p>role:<span th:text="${item.role}"></span></p>
+	                		<p>relDescription:<span th:text="${item.relDescription}"></span></p>
+	                		<hr>
+                		</span>
+                	</th:block>
+                </td>
                 <td><a th:href="${'/interact/show/' + interact.id}">View</a> </td>
                 <td><a th:href="${'/interact/edit/' + interact.id}">Edit</a> </td>
                 <td><a th:href="${'/interact/delete/' + interact.id}">Delete</a> </td>

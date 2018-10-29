@@ -1,9 +1,9 @@
 package userInteraction.dummies;
 
-import java.sql.Timestamp;
+//import java.sql.Timestamp;
 import java.util.List;
 
-import com.datastax.driver.core.UDTValue;
+//import com.datastax.driver.core.UDTValue;
 
 //import java.util.UUID;
 
@@ -21,6 +21,13 @@ public class InteractionsForm {
 //	private List<UDTValue> interactionDate;
 //	private List<Timestamp> interactionDate;
 	private List<String> interactionDate;
+	
+	private String description;
+	private String reason;
+	private String status;
+	private String subStatus;
+	private String statusChangeDate;
+	private String direction;
 	
 //    private String description;
 //    private BigDecimal price;
@@ -121,6 +128,56 @@ public class InteractionsForm {
 	public void setInteractionDate(List<String> interactionDate) {
 		this.interactionDate = interactionDate;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSubStatus() {
+		return subStatus;
+	}
+
+	public void setSubStatus(String subStatus) {
+		this.subStatus = subStatus;
+	}
+
+	public String getStatusChangeDate() {
+		return statusChangeDate;
+	}
+
+	public void setStatusChangeDate(String statusChangeDate) {
+		this.statusChangeDate = statusChangeDate;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+	
+	
 	
 //    public String getDescription() {
 //        return description;

@@ -6,6 +6,13 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.datastax.driver.core.DataType;
+import com.datastax.driver.mapping.annotations.Frozen;
+
+import userInteraction.entities.udts.ChannelUDT;
+import userInteraction.entities.udts.InteractionDateUDT;
+import userInteraction.entities.udts.RelatedEntityUDT;
+import userInteraction.entities.udts.RelatedPartyUDT;
+
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -33,12 +40,35 @@ public class Interactions implements Serializable {
 	private String type;
 	private String schemaLocation;
 	@CassandraType(type = DataType.Name.TIMESTAMP, userTypeName = "interactionDate")
-	private List<InteractionDate> interactionDate;
+	@Frozen
+	private List<InteractionDateUDT> interactionDate;
 //	@CassandraType(type = DataType.Name.UDT)
 //	private List<UDTValue> interactionDate;
 //	@CassandraType(type = DataType.Name.TIMESTAMP)
 //	private List<Timestamp> interactionDate;
 //	private List<String> interactionDate;
+	
+	private String description;
+	private String reason;
+	private String status;
+	private String subStatus;
+	private String statusChangeDate;
+	private String direction;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "channel")
+	@Frozen
+	private List<ChannelUDT> channel;
+	private String registeredBy;
+	private String contractId;
+	private String customerId;
+	private String customerPanteraId;
+	private String leadId;
+	private String msidn;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "relatedParty")
+	@Frozen
+	private List<RelatedPartyUDT> relatedParty;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "relatedEntity")
+	@Frozen
+	private List<RelatedEntityUDT> relatedEntity;
 	
 //    private String description;
 //    private BigDecimal price;
@@ -116,13 +146,135 @@ public class Interactions implements Serializable {
 		this.schemaLocation = schemaLocation;
 	}
 
-	public List<InteractionDate> getInteractionDate() {
+	public List<InteractionDateUDT> getInteractionDate() {
 		return interactionDate;
 	}
 
-	public void setInteractionDate(List<InteractionDate> interactionDate) {
+	public void setInteractionDate(List<InteractionDateUDT> interactionDate) {
 		this.interactionDate = interactionDate;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSubStatus() {
+		return subStatus;
+	}
+
+	public void setSubStatus(String subStatus) {
+		this.subStatus = subStatus;
+	}
+
+	public String getStatusChangeDate() {
+		return statusChangeDate;
+	}
+
+	public void setStatusChangeDate(String statusChangeDate) {
+		this.statusChangeDate = statusChangeDate;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public List<ChannelUDT> getChannel() {
+		return channel;
+	}
+
+	public void setChannel(List<ChannelUDT> channel) {
+		this.channel = channel;
+	}
+
+	public String getRegisteredBy() {
+		return registeredBy;
+	}
+
+	public void setRegisteredBy(String registeredBy) {
+		this.registeredBy = registeredBy;
+	}
+
+	public String getContractId() {
+		return contractId;
+	}
+
+	public void setContractId(String contractId) {
+		this.contractId = contractId;
+	}
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public String getCustomerPanteraId() {
+		return customerPanteraId;
+	}
+
+	public void setCustomerPanteraId(String customerPanteraId) {
+		this.customerPanteraId = customerPanteraId;
+	}
+
+	public String getLeadId() {
+		return leadId;
+	}
+
+	public void setLeadId(String leadId) {
+		this.leadId = leadId;
+	}
+
+	public String getMsidn() {
+		return msidn;
+	}
+
+	public void setMsidn(String msidn) {
+		this.msidn = msidn;
+	}
+
+	public List<RelatedPartyUDT> getRelatedParty() {
+		return relatedParty;
+	}
+
+	public void setRelatedParty(List<RelatedPartyUDT> relatedParty) {
+		this.relatedParty = relatedParty;
+	}
+
+	public List<RelatedEntityUDT> getRelatedEntity() {
+		return relatedEntity;
+	}
+
+	public void setRelatedEntity(List<RelatedEntityUDT> relatedEntity) {
+		this.relatedEntity = relatedEntity;
+	}
+
+
 	
 //	public List<UDTValue> getInteractionDate() {
 //		return interactionDate;
@@ -148,6 +300,8 @@ public class Interactions implements Serializable {
 //		this.interactionDate = interactionDate;
 //	}
 
+	
+	
 //	public Interactions() {
 //        id = UUID.randomUUID();
 //    }

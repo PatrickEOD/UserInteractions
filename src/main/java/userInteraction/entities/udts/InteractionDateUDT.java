@@ -1,4 +1,4 @@
-package userInteraction.entities;
+package userInteraction.entities.udts;
 
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
@@ -9,7 +9,7 @@ import com.datastax.driver.core.DataType;
 
 //@UDT(keyspace = "interactions", name = "informationDate")
 @UserDefinedType("interactionDate")
-public class InteractionDate {
+public class InteractionDateUDT {
 	
 //	@Field(name = "startDateTime")
 	@CassandraType(type = DataType.Name.TIMESTAMP)

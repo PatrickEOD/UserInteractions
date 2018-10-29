@@ -40,13 +40,13 @@ public class InteractionsController {
     }
 
     @RequestMapping({"/interact/list", "/interact"})
-    public String listProducts(Model model){
+    public String listInteractions(Model model){
         model.addAttribute("interactions", interactionsService.listAll());
         return "interact/list";
     }
 
     @RequestMapping("/interact/show/{id}")
-    public String getProduct(@PathVariable String id, Model model){
+    public String getInteraction(@PathVariable String id, Model model){
 //        model.addAttribute("interaction", interactionsService.getById(UUID.fromString(id)));
     	model.addAttribute("Interaction", interactionsService.getById(id));
         return "interact/show";
@@ -63,7 +63,7 @@ public class InteractionsController {
     }
 
     @RequestMapping("/interact/new")
-    public String newProduct(Model model){
+    public String newInteraction(Model model){
         model.addAttribute("interactionForm", new InteractionsForm());
         return "interact/interactionform";
     }

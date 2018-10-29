@@ -51,6 +51,7 @@ public class CassandraDBConfiguration extends AbstractCassandraConfiguration {
 
     @Bean
 	public CassandraMappingContext mappingContext() throws Exception {
+		@SuppressWarnings("deprecation")
 		BasicCassandraMappingContext mappingContext = new BasicCassandraMappingContext();
 		mappingContext.setUserTypeResolver(new SimpleUserTypeResolver(cluster().getObject(), KEYSPACE));
 		return mappingContext;
