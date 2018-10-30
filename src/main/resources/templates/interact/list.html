@@ -6,7 +6,23 @@
 	}
 	table, th, td {
 		border: 1px solid black;
+		min-width: 60px;
 	}
+	.customHr {
+	    /* display: block;
+	    margin-top: 0.5em;
+	    margin-bottom: 0.5em;
+	    margin-left: auto;
+	    margin-right: auto;
+	    border-style: inset;
+	    border-width: 1px; */
+	    align: center;
+	    width: 180px;
+    }
+    .padding1 {
+    	margin-left: 25px;
+    }
+}
 </style>
 <head>
     <title>User Interaction POC</title>
@@ -42,6 +58,10 @@
                 <th>msidn</th>
                 <th>relatedParty</th>
                 <th>relatedEntity</th>
+                <th>attachment</th>
+                <th>note</th>
+                <th>interactionItem</th>
+                <th>characteristics</th>
                 <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
@@ -68,8 +88,8 @@
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{interactionDate}"> 
-                			<p>Start Date:<span th:text="${item.startDateTime}"></span></p>
-                			<p>End Date:<span th:text="${item.endDateTime}"></span></p>
+                			<p>Start Date: <span th:text="${item.startDateTime}"></span></p>
+                			<p>End Date: <span th:text="${item.endDateTime}"></span></p>
                 		</span>
                 	</th:block>
                 </td>  
@@ -82,11 +102,11 @@
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{channel}">
-					        <p>ID:<span th:text="${item.id}"></span></p>	    		
-					        <p>href:<span th:text="${item.href}"></span></p>        		
-					        <p>name:<span th:text="${item.name}"></span></p>        		
-					        <p>role:<span th:text="${item.role}"></span></p>        		
-					        <p>type:<span th:text="${item.type}"></span></p>        		
+					        <p>ID: <span th:text="${item.id}"></span></p>	    		
+					        <p>href: <span th:text="${item.href}"></span></p>        		
+					        <p>name: <span th:text="${item.name}"></span></p>        		
+					        <p>role: <span th:text="${item.role}"></span></p>        		
+					        <p>type: <span th:text="${item.type}"></span></p>        		
                 		</span>
                 	</th:block>
                 </td>
@@ -100,11 +120,11 @@
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{relatedParty}">
                 			<!-- <span th:each="item : *{items}"> -->
-	                			<p>ID:<span th:text="${item.id}"></span></p>
-	                			<p>href:<span th:text="${item.href}"></span></p>
-	                			<p>referredType:<span th:text="${item.referredType}"></span></p>
-	                			<p>role:<span th:text="${item.role}"></span></p>
-	                			<p>name:<span th:text="${item.name}"></span></p>
+	                			<p>ID: <span th:text="${item.id}"></span></p>
+	                			<p>href: <span th:text="${item.href}"></span></p>
+	                			<p>referredType: <span th:text="${item.referredType}"></span></p>
+	                			<p>role: <span th:text="${item.role}"></span></p>
+	                			<p>name: <span th:text="${item.name}"></span></p>
 	                			<hr>
                 			<!-- </span> -->
                 		</span>
@@ -113,13 +133,122 @@
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{relatedEntity}">
-                			<p>ID:<span th:text="${item.id}"></span></p>
-	                		<p>href:<span th:text="${item.href}"></span></p>
-	                		<p>referredType:<span th:text="${item.referredType}"></span></p>
-	                		<p>role:<span th:text="${item.role}"></span></p>
-	                		<p>relDescription:<span th:text="${item.relDescription}"></span></p>
+                			<p>ID: <span th:text="${item.id}"></span></p>
+	                		<p>href: <span th:text="${item.href}"></span></p>
+	                		<p>referredType: <span th:text="${item.referredType}"></span></p>
+	                		<p>role: <span th:text="${item.role}"></span></p>
+	                		<p>relDescription: <span th:text="${item.relDescription}"></span></p>
 	                		<hr>
                 		</span>
+                	</th:block>
+                </td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{attachment}">
+                			<p>ID: <span th:text="${item.id}"></span></p>
+	                		<p>href: <span th:text="${item.href}"></span></p>
+	                		<p>name: <span th:text="${item.name}"></span></p>
+	                		<p>description: <span th:text="${item.description}"></span></p>
+	                		<p>type: <span th:text="${item.type}"></span></p>
+	                		<p>mimeType: <span th:text="${item.mimeType}"></span></p>
+	                		<p>size: <span th:text="${item.size}"></span></p>
+	                		<p>sizeUnit: <span th:text="${item.sizeUnit}"></span></p>
+	                		<p>url: <span th:text="${item.url}"></span></p>
+	                		<p>validForStartTime: <span th:text="${item.validForStartTime}"></span></p>
+	                		<p>validForEndTime: <span th:text="${item.validForEndTime}"></span></p>
+	                		<hr>
+                		</span>
+                	</th:block>
+                </td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<span th:each="item : *{note}">
+                			<p>date: <span th:text="${item.date}"></span></p>
+                			<p>author: <span th:text="${item.author}"></span></p>
+                			<p>text: <span th:text="${item.text}"></span></p>
+                			<hr>
+                		</span>
+                	</th:block>
+                </td>
+                <td>
+                	<th:block th:object="${interact}">
+                		<p>Interaction Item:</p>
+                		<span th:each="items : *{interactionItem}">
+	                		<p>id: <span th:text="${items.id}"></span></p>
+	                		<p>href: <span th:text="${items.href}"></span></p>
+	                		<p>reason: <span th:text="${items.reason}"></span></p>
+	                		<p>itemDate: <span th:text="${items.itemDate}"></span></p>
+	                		<p>resolution: <span th:text="${items.resolution}"></span></p>
+	                		<hr clas="padding1">
+	                		<th:block th:object="${items}">
+	                			<p>Related Parties:</p>
+	                			<div class="padding1" th:each="item : *{relatedParty}">
+			                		<hr class="customHr">
+			                		<p>id: <span th:text="${item.id}"></span></p>
+			                		<p>href: <span th:text="${item.href}"></span></p>
+			                		<p>referredType: <span th:text="${item.referredType}"></span></p>
+			                		<p>role: <span th:text="${item.role}"></span></p>
+			                		<p>name: <span th:text="${item.name}"></span></p>
+	                			</div>
+	                		</th:block>
+	                		<hr class="padding1">
+	                		<th:block th:object="${items}">
+	                			<p>Related Entities:</p>
+	                			<div class="padding1" th:each="item : *{relatedEntity}">
+			                		<hr class="customHr">
+			                		<p>id: <span th:text="${item.id}"></span></p>
+			                		<p>href: <span th:text="${item.href}"></span></p>
+			                		<p>referredType: <span th:text="${item.referredType}"></span></p>
+			                		<p>role: <span th:text="${item.role}"></span></p>
+			                		<p>relDescription: <span th:text="${item.relDescription}"></span></p>
+	                			</div>
+	                		</th:block>
+	                		<hr class="padding1">
+	                		<th:block th:object="${items}">
+	                			<p>Attachments:</p>
+	                			<div class="padding1" th:each="item : *{attachment}">
+			                		<hr class="customHr">
+			                		<p>id: <span th:text="${item.id}"></span></p>
+			                		<p>href: <span th:text="${item.href}"></span></p>
+			                		<p>name: <span th:text="${item.name}"></span></p>
+			                		<p>description: <span th:text="${item.description}"></span></p>
+			                		<p>type: <span th:text="${item.type}"></span></p>
+			                		<p>mimeType: <span th:text="${item.mimeType}"></span></p>
+			                		<p>size: <span th:text="${item.size}"></span></p>
+			                		<p>sizeUnit: <span th:text="${item.sizeUnit}"></span></p>
+			                		<p>URL: <span th:text="${item.url}"></span></p>
+			                		<p>validForStartTime: <span th:text="${item.validForStartTime}"></span></p>
+			                		<p>validForEndTime: <span th:text="${item.validForEndTime}"></span></p>
+	                			</div>
+	                		</th:block>
+	                		<hr class="padding1">
+	                		<th:block th:object="${items}">
+	                			<p>Notes:</p>
+	                			<div class="padding1" th:each="item : *{note}">
+			                		<hr class="customHr">
+			                		<p>date: <span th:text="${item.date}"></span></p>
+			                		<p>author: <span th:text="${item.author}"></span></p>
+			                		<p>text: <span th:text="${item.text}"></span></p>
+	                			</div>
+	                		</th:block>
+	                		<!-- <span th:each="item: *{items}">
+	                			<p>id: <span th:text="${item.id}"></span></p>
+	                			<p>href: <span th:text="${item.href}"></span></p>
+	                			<p>referredType: <span th:text="${item.referredType}"></span></p>
+	                			<p>role: <span th:text="${item.role}"></span></p>
+	                			<p>name: <span th:text="${item.name}"></span></p>
+	                		</span> -->
+	                		<hr>
+                		</span>
+                	</th:block>
+                </td>
+                <td>
+                	<th:block th:object="${interact}">
+						<span th:each="item : *{characteristic}">
+							<p>name: <span th:text="${item.name}"></span></p>
+							<p>value: <span th:text="${item.value}"></span></p>
+							<hr>
+						</span>                	
                 	</th:block>
                 </td>
                 <td><a th:href="${'/interact/show/' + interact.id}">View</a> </td>

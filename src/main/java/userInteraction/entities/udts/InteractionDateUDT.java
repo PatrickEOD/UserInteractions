@@ -1,5 +1,7 @@
 package userInteraction.entities.udts;
 
+import java.util.Date;
+
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.UserDefinedType;
 
@@ -13,26 +15,27 @@ public class InteractionDateUDT {
 	
 //	@Field(name = "startDateTime")
 	@CassandraType(type = DataType.Name.TIMESTAMP)
-	private String startDateTime;
+	private Date startDateTime;
 	
 //	@Field(name = "endDateTime")
 	@CassandraType(type = DataType.Name.TIMESTAMP)
-	private String endDateTime;
+	private Date endDateTime;
 
-	public String getStartDateTime() {
+	public Date getStartDateTime() {
 		return startDateTime;
 	}
 
-	public void setStartDateTime(String startDateTime) {
+	public void setStartDateTime(Date startDateTime) {
 		this.startDateTime = startDateTime;
 	}
 
-	public String getEndDateTime() {
+	public Date getEndDateTime() {
 		return endDateTime;
 	}
 
-	public void setEndDateTime(String endDateTime) {
+	public void setEndDateTime(Date endDateTime) {
 		this.endDateTime = endDateTime;
 	}
+
 
 }

@@ -1,6 +1,7 @@
 package userInteraction.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 //import java.sql.Timestamp;
 //import java.util.UUID;
 import java.util.List;
@@ -8,8 +9,12 @@ import java.util.List;
 import com.datastax.driver.core.DataType;
 import com.datastax.driver.mapping.annotations.Frozen;
 
+import userInteraction.entities.udts.AttachmentUDT;
 import userInteraction.entities.udts.ChannelUDT;
+import userInteraction.entities.udts.CharacteristicUDT;
 import userInteraction.entities.udts.InteractionDateUDT;
+import userInteraction.entities.udts.InteractionItemUDT;
+import userInteraction.entities.udts.NoteUDT;
 import userInteraction.entities.udts.RelatedEntityUDT;
 import userInteraction.entities.udts.RelatedPartyUDT;
 
@@ -47,12 +52,12 @@ public class Interactions implements Serializable {
 //	@CassandraType(type = DataType.Name.TIMESTAMP)
 //	private List<Timestamp> interactionDate;
 //	private List<String> interactionDate;
-	
 	private String description;
 	private String reason;
 	private String status;
 	private String subStatus;
-	private String statusChangeDate;
+	@CassandraType(type = DataType.Name.TIMESTAMP)
+	private Date statusChangeDate;
 	private String direction;
 	@CassandraType(type = DataType.Name.TEXT, userTypeName = "channel")
 	@Frozen
@@ -69,6 +74,17 @@ public class Interactions implements Serializable {
 	@CassandraType(type = DataType.Name.TEXT, userTypeName = "relatedEntity")
 	@Frozen
 	private List<RelatedEntityUDT> relatedEntity;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName ="attachment")
+	@Frozen
+	private List<AttachmentUDT> attachment;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "note")
+	@Frozen
+	private List<NoteUDT> note;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "interactionItem")
+	@Frozen
+	private List<InteractionItemUDT> interactionItem;
+	@CassandraType(type = DataType.Name.TEXT, userTypeName = "characteristic")
+	private List<CharacteristicUDT> characteristic;
 	
 //    private String description;
 //    private BigDecimal price;
@@ -186,11 +202,11 @@ public class Interactions implements Serializable {
 		this.subStatus = subStatus;
 	}
 
-	public String getStatusChangeDate() {
+	public Date getStatusChangeDate() {
 		return statusChangeDate;
 	}
 
-	public void setStatusChangeDate(String statusChangeDate) {
+	public void setStatusChangeDate(Date statusChangeDate) {
 		this.statusChangeDate = statusChangeDate;
 	}
 
@@ -274,7 +290,39 @@ public class Interactions implements Serializable {
 		this.relatedEntity = relatedEntity;
 	}
 
+	public List<AttachmentUDT> getAttachment() {
+		return attachment;
+	}
 
+	public void setAttachment(List<AttachmentUDT> attachment) {
+		this.attachment = attachment;
+	}
+
+	public List<NoteUDT> getNote() {
+		return note;
+	}
+
+	public void setNote(List<NoteUDT> note) {
+		this.note = note;
+	}
+	
+	public List<InteractionItemUDT> getInteractionItem() {
+		return interactionItem;
+	}
+
+	public void setInteractionItem(List<InteractionItemUDT> interactionItem) {
+		this.interactionItem = interactionItem;
+	}
+
+	public List<CharacteristicUDT> getCharacteristic() {
+		return characteristic;
+	}
+
+	public void setCharacteristic(List<CharacteristicUDT> characteristic) {
+		this.characteristic = characteristic;
+	}
+
+	
 	
 //	public List<UDTValue> getInteractionDate() {
 //		return interactionDate;
