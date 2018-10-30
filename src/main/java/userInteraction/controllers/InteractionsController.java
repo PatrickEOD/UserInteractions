@@ -48,7 +48,7 @@ public class InteractionsController {
     @RequestMapping("/interact/show/{id}")
     public String getInteraction(@PathVariable String id, Model model){
 //        model.addAttribute("interaction", interactionsService.getById(UUID.fromString(id)));
-    	model.addAttribute("Interaction", interactionsService.getById(id));
+    	model.addAttribute("interaction", interactionsService.getById(id));
         return "interact/show";
     }
 
