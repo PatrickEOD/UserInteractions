@@ -63,10 +63,4 @@ public class RelatedPartyUDT {
 		this.name = name;
 	}
 
-	@Override
-	public String toString() {
-		return "RelatedPartyUDTList [id=" + id + ", href=" + href + ", referredType=" + referredType + ", role=" + role
-				+ ", name=" + name + "]";
-	}
-	
 }

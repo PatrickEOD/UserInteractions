@@ -1,15 +1,11 @@
 package userInteraction.dummies;
 
-//import java.sql.Timestamp;
 import java.util.List;
 
-//import com.datastax.driver.core.UDTValue;
 
-//import java.util.UUID;
 
 public class InteractionsForm {
 
-//	private UUID id;
 	private String id;
 	private String href;
 	private String sourceInteractionId;
@@ -18,10 +14,7 @@ public class InteractionsForm {
 	private String baseType;
 	private String type;
 	private String schemaLocation;
-//	private List<UDTValue> interactionDate;
-//	private List<Timestamp> interactionDate;
 	private List<String> interactionDate;
-	
 	private String description;
 	private String reason;
 	private String status;
@@ -29,9 +22,6 @@ public class InteractionsForm {
 	private String statusChangeDate;
 	private String direction;
 	
-//    private String description;
-//    private BigDecimal price;
-//    private String imageUrl;
 
 	public String getId() {
 		return id;
@@ -40,14 +30,6 @@ public class InteractionsForm {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-//	public UUID getId() {
-//		return id;
-//	}
-
-//	public void setId(UUID id) {
-//		this.id = id;
-//	}
 
 	public String getHref() {
 		return href;
@@ -105,25 +87,10 @@ public class InteractionsForm {
 		this.schemaLocation = schemaLocation;
 	}
 
-//	public List<UDTValue> getInteractionDate() {
-//		return interactionDate;
-//	}
-	
-//	public List<Timestamp> getInteractionDate() {
-//		return interactionDate;
-//	}
-	
 	public List<String> getInteractionDate() {
 		return interactionDate;
 	}
 
-//	public void setInteractionDate(List<UDTValue> interactionDate) {
-//		this.interactionDate = interactionDate;
-//	}
-	
-//	public void setInteractionDate(List<Timestamp> interactionDate) {
-//		this.interactionDate = interactionDate;
-//	}
 	
 	public void setInteractionDate(List<String> interactionDate) {
 		this.interactionDate = interactionDate;
@@ -177,29 +144,4 @@ public class InteractionsForm {
 		this.direction = direction;
 	}
 	
-	
-	
-//    public String getDescription() {
-//        return description;
-//    }
-
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
-
-//    public BigDecimal getPrice() {
-//        return price;
-//    }
-
-//    public void setPrice(BigDecimal price) {
-//        this.price = price;
-//    }
-
-//    public String getImageUrl() {
-//        return imageUrl;
-//    }
-
-//    public void setImageUrl(String imageUrl) {
-//        this.imageUrl = imageUrl;
-//    }
 }

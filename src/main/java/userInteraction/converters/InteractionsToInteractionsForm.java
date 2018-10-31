@@ -22,10 +22,6 @@ public class InteractionsToInteractionsForm implements Converter<Interactions, I
 		interactionsForm.setType(interactions.getType());
 		interactionsForm.setSchemaLocation(interactions.getSchemaLocation());
 		
-//		interactionsForm.setDescription(test.getDescription());
-//		interactionsForm.setImageUrl(test.getImageUrl());
-//		interactionsForm.setPrice(test.getPrice());
-		
 		return interactionsForm;
 	}
 

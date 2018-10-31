@@ -9,13 +9,6 @@
 		min-width: 60px;
 	}
 	.customHr {
-	    /* display: block;
-	    margin-top: 0.5em;
-	    margin-bottom: 0.5em;
-	    margin-left: auto;
-	    margin-right: auto;
-	    border-style: inset;
-	    border-width: 1px; */
 	    align: center;
 	    width: 180px;
     }
@@ -42,7 +35,7 @@
                 <th>baseType</th>
                 <th>type</th>
                 <th>schemaLocation</th>
-                <th>interactiondDate</th>
+                <th>interactionDate</th>
                 <th>description</th>
                 <th>reason</th>
                 <th>status</th>
@@ -75,16 +68,6 @@
                 <td th:text="${interact.baseType}"></td>
                 <td th:text="${interact.type}"></td>
                 <td th:text="${interact.schemaLocation}"></td>
-                <!-- <td th:each="interactionDate : *{interact}">
-                	<span th:text="*{interactionDate.startDateTime}"></span>
-                	<span th:text="*{interactionDate.endDateTime}"></span>
-                </td> -->
-               <!--  <td th:each="interactionDate, itemStat : *{interact}"> -->
-                	<!-- <span th:field="*{interactionDate[__${itemStat.index}__].startDateTime}"></span>
-                	<span th:field="*{interactionDate[__${itemStat.index}__].endDateTime}"></span> -->
-                	<!-- <span th:text="${interactionDate.startDateTime}"></span>
-                	<span th:text="${interactionDate.endDateTime}"></span> -->
-                <!-- </td> -->
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{interactionDate}"> 
@@ -119,14 +102,12 @@
                 <td>
                 	<th:block th:object="${interact}">
                 		<span th:each="item : *{relatedParty}">
-                			<!-- <span th:each="item : *{items}"> -->
-	                			<p>ID: <span th:text="${item.id}"></span></p>
-	                			<p>href: <span th:text="${item.href}"></span></p>
-	                			<p>referredType: <span th:text="${item.referredType}"></span></p>
-	                			<p>role: <span th:text="${item.role}"></span></p>
-	                			<p>name: <span th:text="${item.name}"></span></p>
-	                			<hr>
-                			<!-- </span> -->
+	                		<p>ID: <span th:text="${item.id}"></span></p>
+	                		<p>href: <span th:text="${item.href}"></span></p>
+	                		<p>referredType: <span th:text="${item.referredType}"></span></p>
+	                		<p>role: <span th:text="${item.role}"></span></p>
+	                		<p>name: <span th:text="${item.name}"></span></p>
+	                		<hr>
                 		</span>
                 	</th:block>
                 </td>
@@ -231,13 +212,6 @@
 			                		<p>text: <span th:text="${item.text}"></span></p>
 	                			</div>
 	                		</th:block>
-	                		<!-- <span th:each="item: *{items}">
-	                			<p>id: <span th:text="${item.id}"></span></p>
-	                			<p>href: <span th:text="${item.href}"></span></p>
-	                			<p>referredType: <span th:text="${item.referredType}"></span></p>
-	                			<p>role: <span th:text="${item.role}"></span></p>
-	                			<p>name: <span th:text="${item.name}"></span></p>
-	                		</span> -->
 	                		<hr>
                 		</span>
                 	</th:block>

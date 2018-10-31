@@ -47,11 +47,6 @@ public class Interactions implements Serializable {
 	@CassandraType(type = DataType.Name.TIMESTAMP, userTypeName = "interactionDate")
 	@Frozen
 	private List<InteractionDateUDT> interactionDate;
-//	@CassandraType(type = DataType.Name.UDT)
-//	private List<UDTValue> interactionDate;
-//	@CassandraType(type = DataType.Name.TIMESTAMP)
-//	private List<Timestamp> interactionDate;
-//	private List<String> interactionDate;
 	private String description;
 	private String reason;
 	private String status;
@@ -86,9 +81,6 @@ public class Interactions implements Serializable {
 	@CassandraType(type = DataType.Name.TEXT, userTypeName = "characteristic")
 	private List<CharacteristicUDT> characteristic;
 	
-//    private String description;
-//    private BigDecimal price;
-//    private String imageUrl;
 
 	public String getId() {
 		return id;
@@ -97,14 +89,6 @@ public class Interactions implements Serializable {
 	public void setId(String id) {
 		this.id = id;
 	}
-//    public UUID getId() {
-//        return id;
-//    }
-
-//    public void setId(UUID id) {
-//        this.id = id;
-//    }
-    
 
     public String getHref() {
 		return href;
@@ -321,61 +305,5 @@ public class Interactions implements Serializable {
 	public void setCharacteristic(List<CharacteristicUDT> characteristic) {
 		this.characteristic = characteristic;
 	}
-
-	
-	
-//	public List<UDTValue> getInteractionDate() {
-//		return interactionDate;
-//	}
-	
-//	public List<Timestamp> getInteractionDate() {
-//		return interactionDate;
-//	}
-	
-//	public List<String> getInteractionDate() {
-//		return interactionDate;
-//	}
-
-//	public void setInteractionDate(List<UDTValue> interactionDate) {
-//		this.interactionDate = interactionDate;
-//	}
-	
-//	public void setInteractionDate(List<Timestamp> interactionDate) {
-//		this.interactionDate = interactionDate;
-//	}
-	
-//	public void setInteractionDate(List<String> interactionDate) {
-//		this.interactionDate = interactionDate;
-//	}
-
-	
-	
-//	public Interactions() {
-//        id = UUID.randomUUID();
-//    }
-	
-//    public String getDescription() {
-//        return description;
-//    }
-	
-//    public void setDescription(String description) {
-//        this.description = description;
-//    }
-	
-//    public BigDecimal getPrice() {
-//        return price;
-//    }
-	
-//    public void setPrice(BigDecimal price) {
-//        this.price = price;
-//    }
-	
-//    public String getImageUrl() {
-//        return imageUrl;
-//    }
-	
-//    public void setImageUrl(String imageUrl) {
-//        this.imageUrl = imageUrl;
-//    }
 	
 }

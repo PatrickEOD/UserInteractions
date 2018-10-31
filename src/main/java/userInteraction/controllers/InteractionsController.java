@@ -1,6 +1,5 @@
 package userInteraction.controllers;
 
-//import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -47,14 +46,12 @@ public class InteractionsController {
 
     @RequestMapping("/interact/show/{id}")
     public String getInteraction(@PathVariable String id, Model model){
-//        model.addAttribute("interaction", interactionsService.getById(UUID.fromString(id)));
     	model.addAttribute("interaction", interactionsService.getById(id));
         return "interact/show";
     }
 
     @RequestMapping("interact/edit/{id}")
     public String edit(@PathVariable String id, Model model){
-//        Interactions interaction = interactionsService.getById(UUID.fromString(id));
         Interactions interaction = interactionsService.getById(id);
         InteractionsForm interactionForm = interactionsToInteractionsForm.convert(interaction);
 
@@ -82,7 +79,6 @@ public class InteractionsController {
 
     @RequestMapping("/interact/delete/{id}")
     public String delete(@PathVariable String id){
-//        interactionsService.delete(UUID.fromString(id));
         interactionsService.delete(id);
         return "redirect:/interact/list";
     }
