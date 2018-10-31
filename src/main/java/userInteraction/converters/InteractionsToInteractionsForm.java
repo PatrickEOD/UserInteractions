@@ -12,7 +12,8 @@ public class InteractionsToInteractionsForm implements Converter<Interactions, I
 	@Override
 	public InteractionsForm convert(Interactions interactions) {
 		InteractionsForm interactionsForm = new InteractionsForm();
-		
+//		NoteUDTToNoteUDTForm n = new NoteUDTToNoteUDTForm();
+
 		interactionsForm.setId(interactions.getId());
 		interactionsForm.setHref(interactions.getBaseType());
 		interactionsForm.setSourceInteractionId(interactions.getSourceInteractionId());
@@ -21,9 +22,11 @@ public class InteractionsToInteractionsForm implements Converter<Interactions, I
 		interactionsForm.setBaseType(interactions.getBaseType());
 		interactionsForm.setType(interactions.getType());
 		interactionsForm.setSchemaLocation(interactions.getSchemaLocation());
-		
+
+//		interactionsForm.setNote(n.convert(interactions.getNote()));
+		interactionsForm.setDescription(interactions.getDescription());
+
 		return interactionsForm;
 	}
 
-	
 }

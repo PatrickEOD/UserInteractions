@@ -2,7 +2,7 @@ package userInteraction.dummies;
 
 import java.util.List;
 
-
+import userInteraction.dummies.udts.NoteUDTForm;
 
 public class InteractionsForm {
 
@@ -21,6 +21,7 @@ public class InteractionsForm {
 	private String subStatus;
 	private String statusChangeDate;
 	private String direction;
+	private List<NoteUDTForm> note;
 	
 
 	public String getId() {
@@ -142,6 +143,14 @@ public class InteractionsForm {
 
 	public void setDirection(String direction) {
 		this.direction = direction;
+	}
+
+	public List<NoteUDTForm> getNote() {
+		return note;
+	}
+
+	public void setNote(List<NoteUDTForm> note) {
+		this.note = note;
 	}
 	
 }
