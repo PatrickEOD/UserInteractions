@@ -44,15 +44,15 @@ public class InteractionsController {
         return "interact/list";
     }
 
-    @RequestMapping("/interact/show/{id}")
-    public String getInteraction(@PathVariable String id, Model model){
-    	model.addAttribute("interaction", interactionsService.getById(id));
+    @RequestMapping(value = "/interact/show/{customerId}/{id}", method=RequestMethod.GET)
+    public String getInteraction(@PathVariable String customerId, @PathVariable String id, Model model){
+    	model.addAttribute("interaction", interactionsService.getByCustomerIdAndId(customerId, id));
         return "interact/show";
     }
 
-    @RequestMapping("interact/edit/{id}")
-    public String edit(@PathVariable String id, Model model){
-        Interactions interaction = interactionsService.getById(id);
+    @RequestMapping("interact/edit/{customerId}/{id}")
+    public String edit(@PathVariable String customerId, @PathVariable String id, Model model){
+    	Interactions interaction = interactionsService.getByCustomerIdAndId(customerId, id);
         InteractionsForm interactionForm = interactionsToInteractionsForm.convert(interaction);
 
         model.addAttribute("interactionForm", interactionForm);
@@ -77,9 +77,9 @@ public class InteractionsController {
         return "redirect:/interact/show/" + savedInteraction.getId();
     }
 
-    @RequestMapping("/interact/delete/{id}")
-    public String delete(@PathVariable String id){
-        interactionsService.delete(id);
+    @RequestMapping("/interact/delete/{customerId}/{id}")
+    public String delete(@PathVariable String customerId, @PathVariable String id){
+        interactionsService.delete(customerId, id);
         return "redirect:/interact/list";
     }
 	

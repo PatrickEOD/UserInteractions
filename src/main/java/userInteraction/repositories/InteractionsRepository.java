@@ -11,4 +11,7 @@ import userInteraction.entities.Interactions;
 
 public interface InteractionsRepository extends CrudRepository<Interactions, String> {
 
+	Interactions findByCustomerIdAndId(String customerId, String id);
+	
+	Interactions deleteByCustomerIdAndId(String customerId, String id);
 }

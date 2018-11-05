@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.datastax.driver.core.DataType;
+import com.datastax.driver.mapping.annotations.ClusteringColumn;
 import com.datastax.driver.mapping.annotations.Frozen;
+import com.datastax.driver.mapping.annotations.PartitionKey;
 
 import userInteraction.entities.udts.AttachmentUDT;
 import userInteraction.entities.udts.ChannelUDT;
@@ -30,12 +32,17 @@ import org.springframework.data.cassandra.core.mapping.Table;
 //@Table("interactions")
 
 // cassandra at cloud
-@Table("user_interactions")
+//@Table("user_interactions")
+
+// target namings
+@Table("user_interactions_by_customerId")
 public class Interactions implements Serializable {
 
-	@PrimaryKey
+//	@PrimaryKey
 //    @CassandraType(type = DataType.Name.UUID)
 //    private UUID id;
+	@PrimaryKey
+	@PartitionKey
 	private String id;
 	private String href;
 	private String sourceInteractionId;
@@ -59,6 +66,7 @@ public class Interactions implements Serializable {
 	private List<ChannelUDT> channel;
 	private String registeredBy;
 	private String contractId;
+	@PartitionKey
 	private String customerId;
 	private String customerPanteraId;
 	private String leadId;

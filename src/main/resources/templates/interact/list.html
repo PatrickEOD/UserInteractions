@@ -226,9 +226,12 @@
 						</span>                	
                 	</th:block>
                 </td>
-                <td><a th:href="${'/interact/show/' + interact.id}">View</a> </td>
-                <td><a th:href="${'/interact/edit/' + interact.id}">Edit</a> </td>
-                <td><a th:href="${'/interact/delete/' + interact.id}">Delete</a> </td>
+               	<!-- <td><a th:href="${'/interact/show/'  + interact.id}">View</a> </td> -->
+                <td><a th:href="@{/interact/show/{customerId}/{id}(customerId=${interact.customerId},id=${interact.id})}">View</a> </td>
+                <!-- <td><a th:href="${'/interact/edit/' + interact.id}">Edit</a> </td> -->
+                <td><a th:href="@{/interact/edit/{customerId}/{id}(customerId=${interact.customerId},id=${interact.id})}">Edit</a></td>
+                <!-- <td><a th:href="${'/interact/delete/' + interact.id}">Delete</a> </td> -->
+                <td><a th:href="@{/interact/delete/{customerId}/{id}(customerId=${interact.customerId},id=${interact.id})}">Delete</a></td>
             </tr>
         </table>
     </div>

@@ -14,6 +14,8 @@ public interface InteractionsService {
 //	Interactions getById(UUID id);
 
 	Interactions getById(String id);
+	
+	Interactions getByCustomerIdAndId(String customerId, String id);
 
 	Interactions saveOrUpdate(Interactions interactions);
 
@@ -21,6 +23,8 @@ public interface InteractionsService {
 //	void delete(UUID id);
 
 	void delete(String id);
+
+	void delete(String customerId, String id);
 
 	Interactions saveOrUpdateInteractionsForm(InteractionsForm interactionsForm);
 }

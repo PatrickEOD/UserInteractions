@@ -49,6 +49,11 @@ public class InteractionsServiceImpl implements InteractionsService {
 	}
 	
 	@Override
+	public Interactions getByCustomerIdAndId(String customerId, String id) {
+		return interactionsRepository.findByCustomerIdAndId(customerId, id);
+	}
+	
+	@Override
 	public Interactions saveOrUpdate(Interactions interactions) {
 		interactionsRepository.save(interactions);
 		return interactions;
@@ -64,6 +69,11 @@ public class InteractionsServiceImpl implements InteractionsService {
 	@Override
 	public void delete(String id) {
 		interactionsRepository.deleteById(id);
+	}
+	
+	@Override
+	public void delete(String customerId, String id) {
+		interactionsRepository.deleteByCustomerIdAndId(customerId, id);
 	}
 	
 	@Override
